@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <title>Custom Box Creator</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 5px;
+      }
+      body {
+        background-color: blue;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      .settings-wrapper {
+        background-image: linear-gradient(darkblue, skyblue);
+        border-radius: 10px;
+        width: 500px;
+        height: 500px;
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 5px 5px 5px;
+      }
+      .settings-wrapper:hover {
+        border: 1px solid black; 
+      }
+      input {
+        margin: 5px 5px 4px 5px;
+        padding: 5px 10px 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        box-shadow: 3px 3px 3px;
+        letter-spacing: 1px;
+        width: 220px;
+      }
+      input:hover {
+        border: 1px solid black;
+      }
+      input:focus {
+        background-color: blue;
+        color: yellow;
+      }
+      .secondary-settings-wrapper {
+        background-color: black;
+        color: azure;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        height: fit-content;
+        margin-bottom: 12px;
+      }
+      .settings-btn {
+        padding: 4px;
+        margin-left: 10px;
+        margin-top: 12px;
+      }
+      .settings-btn:hover {
+        padding: 6px;
+      }
+      .output-wrapper {
+        width: 1000px;
+        max-height: 1000px;
+        padding: 20px;
+        background-color: transparent;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      textarea {
+        resize: none;
+        width: 240px;
+        padding: 5px;
+        margin-left: 5px;
+        overflow: auto;
+        box-shadow: 3px 3px 3px;
+      }
+      textarea::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+  </head>
+  <body id="main-screen">
+    <div class="settings-wrapper" id="settings-wrapper">
+      <h2 style="margin: 7px 0 7px 0; font-family: monospace; color: azure; font-size: 20px; padding: 2px">Customise Your Box!</h2>
+      <input type="number" id="width-inp" placeholder="Width (px)" required>
+      <input type="number" id="height-inp" placeholder="Height (px)" required>
+      <input type="number" id="padding-inp" placeholder="Padding (px)">
+      <input type="text" id="border-color-inp" placeholder="Border Color (name)">
+      <input type="number" id="border-thickness-inp" placeholder="Border Width (px)">
+      <input type="text" id="border-style-inp" placeholder="Border Style (name)" title="solid, double, dotted">
+      <input type="number" id="border-radius-inp" placeholder="Border Radius (px)">
+      <input type="number" id="margin-inp" placeholder="Margin (px)">
+      <input type="text" id="background-color-inp" placeholder="Background Color (name)">
+      <input type="text" id="text-color-inp" placeholder="Text Color (name)">
+      <input type="number" id="text-size-inp" placeholder="Text Size (px)">
+      <input type="text" id="text-style-inp" placeholder="Text Style (name)" title="normal, italic, oblique">
+      <input type="text" id="text-align-inp" placeholder="Text Alignment (name)" title="left, right or center">
+      <textarea id="message-inp" placeholder="Write Message..."></textarea>
+      <button class="settings-btn" id="create-box-btn">Create</button>
+    </div>
+    
+    <div class="output-wrapper" id="output-wrapper">
+     
+    </div>
+    <div class="secondary-settings-wrapper" id="secondary-settings-wrapper" style="display: none;">
+      <input type="text" id="display-style-inp" placeholder="Display Style (name)" title="block, inline-block, flex, flexbox">
+      <input type="text" id="content-align-inp" placeholder="Content Alignment (name)" title="center, space-between, space-around">
+      
+      <input type="text" id="add-heading" placeholder="Heading (H2)">
+      <input type="text" id="add-paragraph" placeholder="Add Paragraph (p)">
+      <button class="settings-btn" id="apply-settings-btn">Apply</button>
+    </div>
+    <script>
+      let mainScreen = document.getElementById("main-screen");
+      let settingsWrapper = document.getElementById("settings-wrapper");
+      let secondarySettingsWrapper = document.getElementById("secondary-settings-wrapper");
+      let outputWrapper = document.getElementById("output-wrapper");
+    
+      document.getElementById("create-box-btn").onclick = function() {
+        settingsWrapper.style.display = "none";
+        mainScreen.style.flexDirection = "flex";
+        mainScreen.style.flexDirection = "column";
+        secondarySettingsWrapper.style.display = "block";
+
+        const customBox = document.createElement("div");
+        customBox.setAttribute("id", "custom-box");
+        customBox.style.width = parseInt(document.getElementById("width-inp").value);
+        customBox.style.height = parseInt(document.getElementById("height-inp").value);
+        customBox.style.padding = parseInt(document.getElementById("padding-inp").value);
+        customBox.style.borderColor = document.getElementById("border-color-inp").value;
+        customBox.style.borderWidth = document.getElementById("border-thickness-inp").value;
+        customBox.style.borderStyle = document.getElementById("border-style-inp").value;
+        customBox.style.borderRadius = document.getElementById("border-radius-inp").value;
+        customBox.style.margin = document.getElementById("margin-inp").value;
+        customBox.style.backgroundColor = document.getElementById("background-color-inp").value;
+        customBox.style.color = document.getElementById("text-color-inp").value;
+        customBox.style.fontSize = document.getElementById("text-size-inp").value;
+        customBox.style.fontStyle = document.getElementById("text-style-inp").value;
+        customBox.style.textAlign = document.getElementById("text-align-inp").value;
+        customBox.innerHTML = document.getElementById("message-inp").value;
+
+        // default box settings
+        customBox.style.margin = "0 auto";
+
+        document.getElementById("main-screen").appendChild(customBox);
+
+        const returnToMain = document.createElement("button");
+        returnToMain.innerHTML = "Go Back!";
+        returnToMain.setAttribute("class", "settings-btn");
+        returnToMain.style.margin = "0 auto";
+        returnToMain.onclick = function() {
+          returnToMain.style.display = "none";
+          customBox.style.display = "none";
+          settingsWrapper.style.display = "flex";
+        }
+        customBox.appendChild(returnToMain);
+
+        document.getElementById("apply-settings-btn").onclick = function() {
+          customBox.style.display = document.getElementById("display-style-inp").value;
+          customBox.style.justifyContent = document.getElementById("content-align-inp").value;
+          customBox.innerHTML = document.getElementById("add-heading").value;
+          customBox.innerHTML = document.getElementById("add-paragraph").value;
+          document.getElementById("add-heading").style.fontSize = "18px";
+          document.getElementById("add-paragraph").style.fontSize = "15px";
+          customBox.innerHTML = document.getElementById("add-paragraph").value;
+        }
+
+        alert("Box created! \nDimensions: " + document.getElementById("width-inp").value + "x" + document.getElementById("height-inp").value);
+
+        document.getElementById("reset-btn").onclick = function() {
+        let toDelete = document.getElementById("custom-box");
+        toDelete.remove();
+      }
+      }
+    </script>
+  </body>
+</html>

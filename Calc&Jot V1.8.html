@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="keywords" content="HTML5, CSS3, JavaScript">
+    <meta name="description" content="Simple calculator program of my making..">
+    <meta name="author" content="Martin Lalus">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <title>Calc&Jot V1.8 (2025 remake)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+	<style>
+* {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  border-radius: 30px;
+  text-align: center;
+}
+body {
+  background-color: #201408;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 25px;
+  height: 525px;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.flexbox-styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.panel-wrapper {
+  background-color: black;
+  padding: 20px 20px 10px 20px;
+  width: 800px;
+  height: 400px;
+  overflow-y: auto;
+  border: 5px inset #FAFAD2;
+  box-shadow: 6.5px 11.5px;
+  border-radius: 12px;
+}
+
+.panel-wrapper:hover {
+  border: 5px solid #FAFAD2;
+  background-color: midnightblue;
+}
+.top-header {
+  background-color: black;
+  color: yellow;
+  border: 2px solid snow;
+  letter-spacing: 1px;
+  font-family: 'Belanosima', monospace, sans-serif;
+  font-size: 15px;
+  padding: 7px;
+  border-radius: 6px;
+  border-bottom: 2px solid azure;
+}
+
+.inputs-wrapper {
+  background-color: transparent;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 25px 10px;
+  border-style: double;
+  box-shadow: 5px 10px;
+  border: 5px inset #FAFAD2;
+  transition: background-image 0.7s;
+}
+.inputs-wrapper:hover {
+  border: 5px outset #FAFAD2;
+}
+.value-input {
+  background-color: black;
+  padding: 10px;
+  color: yellow;
+  box-shadow: 2px 2px 2px yellow;
+  margin: 8px;
+  width: 70px;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  font-size: 20px;
+}
+.value-input:hover {
+  color: aliceblue;
+}
+.operators-wrapper {
+  background-color: transparent;
+  width: 400px;
+  padding: 15px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 5px inset #FAFAD2;
+  border-radius: 10px 25px;
+  box-shadow: 5px 10px;
+}
+.operators-wrapper:hover {
+  border: 5px outset #FAFAD2;
+}
+.operator {
+  background-color: transparent;
+  padding: 10px;
+  margin: 3px;
+  width: 80px;
+  height: fit-content;
+  box-shadow: 2.5px 2.5px;
+  font-size: 30px;
+  font-family: 'Belanosima', sans-serif;
+  border: 2px solid yellow;
+  border-radius: 15px;
+  transition: width 0.8s, height 0.8s, background-color 0.8s;
+}
+.operator:hover {
+  width: 76px;
+  height: 70px;
+  padding: 10px;
+  background-color: #201408;
+  cursor: pointer;
+}
+#ans-btn {
+  background-color: black;
+  color: yellow;
+  font-size: 12px;
+  padding: 5px;
+  width: 65px;
+  height: 50px;
+  border-radius: 15%;
+  border: none;
+}
+#ans-btn:hover {
+  padding: 6px;
+  color: yellow;
+}
+.mark {
+  background-color: transparent;
+  color: yellow;
+  width: fit-content;
+  font-size: 30px;
+  margin: 0 auto;
+  font-weight: bold;
+  font-family: 'Belanosima', sans-serif;
+  border: 3px solid transparent;
+  border-radius: 10px;
+}
+.mark:hover {
+  color: yellow;
+  background-color: transparent;
+  border: 3px solid black;
+}
+.note-option {
+  background-color: darkgreen;
+  box-shadow: 0;
+  border: 2px solid yellow;
+  border-radius: 12px;
+  font-size: 14px;
+  color: yellow;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 12px;
+  width: 100px;
+  height: 60px;
+  transition: width 0.7s, height 0.7s, box-shadow 0.7s;
+}
+.note-option:hover {
+  width: 100px;
+  hei ght: 60px;
+  padding: 12px;
+  box-shadow: 2px 2.5px;
+  background-color: darkblue;
+  color: yellow;
+}
+.result-panel {
+  background-color: black;
+  font-weight: bold;
+  font-size: 22.5px;
+  font-family: monospace, sans-serif;
+  width: 300px;
+  height: fit-content;
+  margin: 0 auto;
+  margin-top: 5px;
+  color: yellow;
+  margin-bottom: 10px;
+  padding: 7.5px;
+  transition: padding 0.7s, font-size 0.7s;
+  border: none;
+  border-radius: 5px;
+}
+.result-panel:hover {
+  color: yellow;
+}
+
+.result-panel:hover {
+  padding: 9.5px;
+  font-size: 25px;
+  font-weight: bold;
+  border: none;
+  background-color: yellow;
+  color: snow;
+}
+.clear-btn {
+  padding: 10px;
+  width: fit-content;
+  height: fit-content;
+  background-color: darkgreen;
+  box-shadow: 1px 1px 1px black;
+  border: 2px solid yellow;
+  margin: 3px;
+  color: yellow;
+  margin-bottom: 16px;
+  transition: width 0.7s, box-shadow 0.6s;
+}
+.clear-btn:hover {
+  padding: 11px;
+  cursor: pointer;
+}
+.extra-content {
+  width: 700px;
+  height: 470px;
+  padding: 0;
+  background-color: darkcyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 5px double whitesmoke;
+  border-radius: 15px;
+  transition: border 0.6s;
+}
+.extra-content:hover {
+  border: 6px solid snow;
+  background-color: darkslategrey;
+}
+.note-panel {
+  width: 95%;
+  height: 200px;
+  background-color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  transition: border 0.6s;
+  overflow: auto;
+
+}
+.note-panel::-webkit-scrollbar {
+  display: none;
+}
+.note-panel:hover {
+  border: 6px solid snow;
+}
+.note-field {
+  width: 90%;
+  color: white;
+  height: fit-content;
+  padding: 10px 6px 10px 6px;
+  font-family: monospace, Arial;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  border-radius: 20px 10px;
+  border: 5px inset cyan;
+  background-color: black;
+  resize: none;
+}
+.note-field::-webkit-scrollbar {
+  display: none;
+}
+.note-field:hover {
+  background-color: darkcyan;
+  color: white;
+  border: 6px outset orange;
+}
+.note-btn {
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  margin-top: 5px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-family: 'Belanosima', monospace, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  border: none;
+  box-shadow: 3.5px 3.5px 4px whitesmoke;
+  border-radius: 5px;
+  background-color: darkslateblue;
+  color: gold;
+}
+.note-btn:hover {
+  background-color: lightsteelblue;
+  color: darkslateblue;
+  font-size: 16px;
+  border: 3.5px solid gold;
+  margin: 1px;
+  box-shadow: 2.5px 2.5px 3px lightcyan;
+}
+.note-output {
+  width: 95%;
+  height: 58%;
+  overflow-y: auto;
+  background-color: black;
+  border-radius: 10px;
+  transition: border 0.6s;
+  color: aliceblue;
+  padding: 5px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.note-output::-webkit-scrollbar {
+  display: none;
+}
+.note-output:hover {
+  opacity: 1;
+}
+.note {
+  background-color: firebrick;
+  border: none;
+  margin: 5px;
+  padding: 6px 7px 6px 7px;
+  transition: font-size 0.5s;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Belanosima', sans-serif;
+  overflow-wrap: break-word;
+  letter-spacing: 2px;
+  line-height: 1.4;
+}
+.note:hover {
+  color: azure;
+  font-size: 14px;
+  margin: 2px 0 2px 0;
+}
+.note-2 {
+  background-color: indigo;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  padding: 6px 7px 6px 7px;
+  transition: font-size 0.7s;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Belanosima', sans-serif;
+  color: orange;
+  overflow-wrap: break-word;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 1px black;
+}
+.note-2:hover {
+  color: azure;
+  font-size: 14px;
+  margin: 2px 0 2px 0;
+}
+.note-3 {
+  background-color: transparent;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+  padding: 6px 7px 6px 7px;
+  transition: font-size 0.7s;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: yellow;
+  overflow-wrap: break-word;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px black;
+}
+.note-3:hover {
+  background-color: darkblue;
+  color: azure;
+  font-size: 14px;
+  margin: 2px 0 2px 0;
+}
+.start-btn {
+  margin-top: 200px;
+  padding: 10px;
+  width: 200px;
+  height: 100px;
+  background-color: indigo;
+}
+.start-btn:hover {
+  padding: 25px;
+}
+.back-btn {
+  background-image: linear-gradient(darkblue, aqua);
+  color: yellow;
+  padding: 10px;
+  margin: 6px;
+  outline: snow solid 3px;
+  opacity: 0.8;
+}
+.back-btn:hover {
+  padding: 12.5px;
+  outline: snow solid 3px;
+  opacity: 1;
+}
+.personal-wrapper {
+  background-color: #00758F;
+  color: #00B2FF;
+  font-size: 16px;
+  letter-spacing: 1px;
+  width: 300px;
+  height: 200px;
+}
+
+.project-menu {
+  width: 270px;
+  height: 270px;
+  background-color: black;
+  color: aqua;
+  margin-top: 100px;
+  outline: greenyellow solid 10px;
+  border-radius: 10%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.projects {
+  width: 50%;
+  height: 25px;
+  padding: 12px;
+  background-color: tomato;
+  color: black;
+  margin-bottom: 15px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: oblique;
+  border: 6px solid greenyellow;
+  transition: width 0.7s;
+}
+.projects:hover {
+  width: 85%;
+}
+span {
+  background-color: darkblue;
+  border: none;
+  border-radius: 0;
+  color: aqua;
+  margin-top: 2px;
+  padding: 2px 8px 2px 8px;
+}
+em {
+  background-color: red;
+  color: azure;
+  padding: 3px;
+}
+.circles-cmd {
+  width: 100%;
+  height: 90%;
+  border-radius: 5px;
+  overflow-y: auto;
+}
+.circles-cmd::-webkit-scrollbar {
+  display: none;
+}
+.counter-app {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow-y: auto;
+}
+.counter-app::-webkit-scrollbar {
+  display: none;
+}
+strong {
+  background: linear-gradient(#efd5ff, #515ada);
+  border: none;
+  border-radius: 5px;
+  padding: 2px;
+}
+.theme-option {
+  padding: 5px;
+  margin: 2px 6px 2px 6px;
+  background-color: black;
+  color: azure;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+}
+.theme-option:hover {
+  cursor: pointer;
+  padding: 6.5px;
+}
+.back-jots-btn {
+  padding: 5px;
+  width: 100px;
+  height: 60px;
+  background-color: darkgreen;
+  box-shadow: 0;
+  border: 2px solid yellow;
+  margin-left: 5px;
+  margin-top: 13px;
+  color: snow;
+  margin-bottom: 16px;
+  transition: width 0.7s, box-shadow 0.6s;
+}
+.back-jots-btn:hover {
+  padding: 6.5px;
+  cursor: pointer;
+  width: 107px;
+  box-shadow: 2px 2px 3px snow;
+  border: 2px solid yellow;
+}
+
+.dev-notes-key {
+  padding: 10px;
+  width: 90px;
+  background-color: darkgreen;
+  box-shadow: 1px 1px 1px black;
+  border: 2px solid yellow;
+  margin: 3px;
+  color: yellow;
+  margin-bottom: 16px;
+  transition: width 0.7s, box-shadow 0.6s;
+}
+.dev-notes-key:hover {
+  padding: 11.5px;
+}
+.dev-notes-panel {
+  width: 95%;
+  height: fit-content;
+  padding: 11.5px;
+  background-color: #00758F;
+}
+.function-btns ul li {
+  display: inline-block;
+}
+.dev-note {
+  margin: 3.5px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: monospace, Verdana, Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: gold;
+}
+.dev-back-key {
+  background-color: yellow;
+  color: royalblue;
+  padding: 10px;
+  margin: 3px;
+}
+.dev-back-key:hover {
+  color: snow;
+  background-color: blue;
+  padding: 11px;
+}
+.result-wrapper {
+  background-color: transparent;
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  max-height: 200px;
+  margin-bottom: 20px;
+  border: 5px inset #FAFAD2;
+  border-radius: 10px;
+  box-shadow: 5px 10px;
+  overflow: auto;
+}
+.result-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.password-panel {
+  width: 200px;
+  height: 100px;
+  background-color: darkslategrey;
+  color: gold;
+  padding: 7px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.password-field {
+  padding: 5px;
+  border-radius: 7px;
+  text-align: center;
+}
+.submit-btn {
+  padding: 7px;
+  margin: 2px;
+  background-color: royalblue;
+  color: gold;
+  width: 90%;
+}
+
+.note-del {
+  margin: 2px 0 2px 0;
+  padding: 2px;
+  font-size: 14px;
+  transition: font-size 0.6s;
+}
+.note-del:hover {
+  font-size: 16px;
+}
+</style>
+  </head>
+  <body class="light-themes flexbox-styles theme" id="main-screen">
+    <!--<p id="app-title" style="text-align: center; color: cyan; margin-bottom: 8.5px; font-size: 20px; font-weight: bold; font-family: monospace, Helvetica, sans-serif; text-shadow: 4px 4px 5px red"; title="# Most recent version">CALC&JOT V1.8 ( 2025 REMAKE )</p> -->
+    <section class="panel-wrapper" id="panel-wrapper">
+      <div class="inputs-wrapper flexbox-styles" id="inputs-wrapper">
+        <div class="top-header" id="top-header">
+          
+        </div>
+      </div>
+      <div class="operators-wrapper flexbox-styles theme" id="operators-wrapper">
+        <button class="operator" title="add numbers" id="add"><h4 class="mark"><img src="Capture2.PNG" width="35px" height="35px"/></h4></button>
+        <button class="operator" title="subtract numbers" id="subtract"><h4 class="mark"><img src="Capture4.PNG" width="35px" height="35px"/></h4></button>
+        <button class="operator" title="multiply numbers" id="multiply"><h4 class="mark"><img src="Capture.PNG" width="35px" height="35px" /></h4></button>
+        <button class="operator" title="divide numbers" id="divide"><h4 class="mark"><img src="Capture3.PNG" width="35px" height="35px" /></h4></button>
+        <button class="note-option" title="link to Notes" id="xtra">| JOTS |</button>
+      </div>
+      <div class="result-wrapper" id="result-wrapper">
+        <h3 style="font-weight: 800; font-family: monospace, Verdana, Geneva, Tahoma, sans-serif; color: gold; margin-bottom: 3px;"> | ANSWER LOG |</h3>
+      </div>
+      <div class="function-btns" id="function-btns">
+        <ul id="function-list">
+          <li><button id="clear-btn" class="clear-btn" style="display: none; border-radius: 7px">DELETE  [ X ]</button></li>
+          <li><button id="enlarge-results" class="clear-btn" style="border-radius: 7px;">ENLARGE  [ ¤ ]</button></li>
+          <li><button id="dev-notes-key" class="dev-notes-key clear-btn" style="border-radius: 7px;">INFO  [ ? ]</button></li>
+        </ul>
+      </div>
+    </section>
+    <script>
+	  let startBtn = document.getElementById("start-btn");
+    let addOperator = document.getElementById("add");
+    let subtractOperator = document.getElementById("subtract");
+    let multiplyOperator = document.getElementById("multiply");
+    let divideOperator = document.getElementById("divide");
+    let xtraButton = document.getElementById("xtra");
+    let mainScreen = document.getElementById("main-screen");
+    let panelWrapper = document.getElementById("panel-wrapper");
+let inputsSection = document.getElementById("inputs-wrapper");
+let operatorsWrapper = document.getElementById("operators-wrapper");
+let operationOutcome;
+let clearButton = document.getElementById("clear-btn");
+let visitorInfo = prompt("What's your name? (press [OK] to continue as a guest user");
+let welcomeMsg = alert("# AVAILABLE OPERATIONS [ + - × ÷ ]\n# MULTITOOL PROGRAM\n# SIMPLE FUNCTIONALITIES\n# Calc&Jot v1.8 (2025 remake)");
+let topHeader = document.getElementById("top-header");
+let calcSettingsBtn = document.getElementById("calc-settings-btn");
+let personalWrapper = document.getElementById("personal-wrapper");
+let notePiece = document.getElementById("note");
+let notes = document.getElementsByClassName("note");
+let noteLogArr = [];
+let enlargeResults = document.getElementById("enlarge-results");
+
+enlargeResults.onclick = function() {
+  enlargeResults.style.display = "none";
+  document.getElementById("dev-notes-key").style.display = "none";
+  inputsSection.style.display = "none";
+  operatorsWrapper.style.display = "none";
+  document.getElementById("result-wrapper").style.height = "fit-content";
+
+  const shrinkResults = document.createElement("button");
+  shrinkResults.innerHTML = "Shrink";
+  shrinkResults.setAttribute("class", "clear-btn");
+  shrinkResults.setAttribute("id", "shrink-results");
+  shrinkResults.style.borderRadius = "7px";                             // shrink result panel
+  shrinkResults.style.marginTop = "10px";
+  document.getElementById("function-list").appendChild(shrinkResults);
+
+  shrinkResults.onclick = function() {
+    shrinkResults.style.display = "none";
+    document.getElementById("dev-notes-key").style.display = "block";
+    enlargeResults.style.display = "block";
+    inputsSection.style.display = "flex";
+    operatorsWrapper.style.display = "flex";
+    document.getElementById("result-wrapper").style.height = "fit-content";
+  }
+}
+
+
+
+topHeader.innerHTML = visitorInfo.toUpperCase() + "\n" + "logged in";
+
+if (visitorInfo == "") {
+  visitorInfo = "Guest User";
+  topHeader.innerText = visitorInfo.toUpperCase() + "\n" + "logged in";
+} else {
+  topHeader.innerText = visitorInfo.toUpperCase() + "\n" + "logged in";
+}
+
+addOperator.addEventListener("click", function() {
+  topHeader.innerHTML = "Add";
+  addOperator.style.display = "none";
+  subtractOperator.style.display = "none";
+  multiplyOperator.style.display = "none";
+  divideOperator.style.display = "none";
+  xtraButton.style.display = "none";
+  operatorsWrapper.style.display = 'none';
+
+  const addInput1 = document.createElement("input");
+  addInput1.setAttribute("class", "value-input");
+  addInput1.setAttribute("placeholder", "+");
+  inputsSection.appendChild(addInput1);
+  const addInput2 = document.createElement("input");
+  addInput2.setAttribute("class", "value-input");
+  addInput2.setAttribute("placeholder", "+");
+  inputsSection.appendChild(addInput2);
+  operationOutcome = document.createElement("button");
+  operationOutcome.setAttribute("class", "operator");
+  operationOutcome.setAttribute("id", "ans-btn");
+  operationOutcome.innerHTML = "ENTER";
+  operationOutcome.onclick = function() {
+    topHeader.innerText = visitorInfo;
+    clearButton.style.display = "block";
+    addOperator.style.display = "block";
+    subtractOperator.style.display = "block";
+    multiplyOperator.style.display = "block";
+    divideOperator.style.display = "block";
+    xtraButton.style.display = "block";
+    operatorsWrapper.style.display = 'flex';
+    
+
+    const resultPanel = document.createElement("div");
+    resultPanel.setAttribute("class", "result-panel");
+    resultPanel.setAttribute("id", "result-element");
+    resultPanel.style.backgroundColor = "darkred";
+    document.getElementById("result-wrapper").appendChild(resultPanel);
+    const result = parseInt(addInput1.value) + parseInt(addInput2.value);
+    resultPanel.innerHTML = addInput1.value + " + " + addInput2.value + " = " + result;
+    addInput1.remove();
+    addInput2.remove();
+    operationOutcome.remove();
+  }
+  inputsSection.appendChild(operationOutcome);
+});
+
+subtractOperator.addEventListener("click", function() {
+  topHeader.innerText = "Subtract";
+  subtractOperator.style.display = "none";
+  addOperator.style.display = "none";
+  multiplyOperator.style.display = "none";
+  divideOperator.style.display = "none";
+  xtraButton.style.display = "none";
+  operatorsWrapper.style.display = 'none';
+
+  const subtractInput1 = document.createElement("input");
+  subtractInput1.setAttribute("class", "value-input");
+  subtractInput1.setAttribute("placeholder", "-");
+  inputsSection.appendChild(subtractInput1);
+  const subtractInput2 = document.createElement("input");
+  subtractInput2.setAttribute("class", "value-input");
+  subtractInput2.setAttribute("placeholder", "-");
+  inputsSection.appendChild(subtractInput2);
+  operationOutcome = document.createElement("button");
+  operationOutcome.setAttribute("class", "operator");
+  operationOutcome.setAttribute("id", "ans-btn");
+  operationOutcome.innerHTML = "ENTER";
+  operationOutcome.onclick = function() {
+    topHeader.innerText = visitorInfo;
+    clearButton.style.display = "block";
+    subtractOperator.style.display = "block";
+    addOperator.style.display = "block";
+    subtractOperator.style.display = "block";
+    multiplyOperator.style.display = "block";
+    divideOperator.style.display = "block";
+    xtraButton.style.display = "block";
+    operatorsWrapper.style.display = 'flex';
+
+    const resultPanel = document.createElement("div");
+    resultPanel.innerHTML = "Your Result:";
+    resultPanel.setAttribute("class", "result-panel");
+    resultPanel.setAttribute("id", "result-element");
+    resultPanel.style.backgroundColor = "darkred";
+    document.getElementById("result-wrapper").appendChild(resultPanel);
+    const result = parseInt(subtractInput1.value) - parseInt(subtractInput2.value);
+    resultPanel.innerHTML = subtractInput1.value + " - " + subtractInput2.value + " = " + result;
+    subtractInput1.remove();
+    subtractInput2.remove();
+    operationOutcome.remove();
+  }
+  inputsSection.appendChild(operationOutcome);
+});
+
+multiplyOperator.addEventListener("click", function() {
+  topHeader.innerText = "Multiply";
+  multiplyOperator.style.display = "none";
+  addOperator.style.display = "none";
+  subtractOperator.style.display = "none";
+  divideOperator.style.display = "none";
+  xtraButton.style.display = "none";
+  operatorsWrapper.style.display = 'none';
+
+  const multiplyInput1 = document.createElement("input");
+  multiplyInput1.setAttribute("class", "value-input");
+  multiplyInput1.setAttribute("placeholder", "x");
+  inputsSection.appendChild(multiplyInput1);
+  const multiplyInput2 = document.createElement("input");
+  multiplyInput2.setAttribute("class", "value-input");
+  multiplyInput2.setAttribute("placeholder", "x");
+  inputsSection.appendChild(multiplyInput2);
+  operationOutcome = document.createElement("button");
+  operationOutcome.setAttribute("class", "operator");
+  operationOutcome.setAttribute("id", "ans-btn");
+  operationOutcome.innerHTML = "ENTER";
+  operationOutcome.onclick = function() {
+    topHeader.innerText = visitorInfo;
+    clearButton.style.display = "block";
+    multiplyOperator.style.display = "block";
+    addOperator.style.display = "block";
+    subtractOperator.style.display = "block";
+    divideOperator.style.display = "block";
+   operatorsWrapper.style.display = 'flex';
+    xtraButton.style.display = "block";
+
+    const resultPanel = document.createElement("div");
+    resultPanel.setAttribute("class", "result-panel");
+    resultPanel.setAttribute("id", "result-element");
+    resultPanel.style.backgroundColor = "darkred";
+    document.getElementById("result-wrapper").appendChild(resultPanel);
+    const result = parseInt(multiplyInput1.value) * parseInt(multiplyInput2.value);
+    resultPanel.innerHTML = multiplyInput1.value + " x " + multiplyInput2.value + " = " + result;
+    multiplyInput1.remove();
+    multiplyInput2.remove();
+    operationOutcome.remove();
+  }
+  inputsSection.appendChild(operationOutcome);
+});
+
+divideOperator.addEventListener("click", function() {
+  topHeader.innerText = "Divide";
+  divideOperator.style.display = "none";
+  addOperator.style.display = "none";
+  subtractOperator.style.display = "none";
+  multiplyOperator.style.display = "none";
+  xtraButton.style.display = "none";
+  operatorsWrapper.style.display = 'none';
+
+  const divideInput1 = document.createElement("input");
+  divideInput1.setAttribute("class", "value-input");
+  divideInput1.setAttribute("placeholder", "/")
+  inputsSection.appendChild(divideInput1);
+  const divideInput2 = document.createElement("input");
+  divideInput2.setAttribute("class", "value-input");
+  divideInput2.setAttribute("placeholder", "/")
+  inputsSection.appendChild(divideInput2);
+  operationOutcome = document.createElement("button");
+  operationOutcome.setAttribute("class", "operator");
+  operationOutcome.setAttribute("id", "ans-btn");
+  operationOutcome.innerHTML = "ENTER";
+  operationOutcome.onclick = function() {
+    topHeader.innerText = visitorInfo;
+    clearButton.style.display = "block";
+    divideOperator.style.display = "block";
+    addOperator.style.display = "block";
+    subtractOperator.style.display = "block";
+    multiplyOperator.style.display = "block";
+    operatorsWrapper.style.display = 'flex';
+    xtraButton.style.display = "block";
+
+    const resultPanel = document.createElement("div");
+    resultPanel.setAttribute("class", "result-panel");
+    resultPanel.setAttribute("id", "result-element");
+    resultPanel.style.backgroundColor = "darkred";
+    document.getElementById("result-wrapper").appendChild(resultPanel);
+    const result = parseInt(divideInput1.value) / parseInt(divideInput2.value);
+    resultPanel.innerHTML = divideInput1.value + " / " + divideInput2.value + " = " + result;
+    divideInput1.remove();
+    divideInput2.remove();
+    operationOutcome.remove();
+  }
+  inputsSection.appendChild(operationOutcome);
+});
+
+xtraButton.addEventListener("click", function() {
+
+  let timeMssg1 = setTimeout(function() {
+      alert("Run the /themes command " + visitorInfo + " :)");
+
+      note2 = document.createElement("div");
+      note2.innerHTML = "<span>[INFO]</span>: Howdy, " + visitorInfo + " did you know you can change themes? Just run the /themes command :)";
+      note2.setAttribute("class", "note-2");
+      note2.setAttribute("class", "note-del");
+      note2.setAttribute("id", "note");
+      noteOutput.appendChild(note2);
+    }, 1000);
+
+  let timeMssg2 = setTimeout(function() {
+    note2 = document.createElement("div");
+    note2.innerHTML = "<span>[INFO]</span>: To access a list of every available command, just execute /showAllCommands";
+    note2.setAttribute("class", "note-2");
+    note2.setAttribute("class", "note-del");
+    note2.setAttribute("id", "note");
+    noteOutput.appendChild(note2);
+  }, 30000);
+
+  xtraButton.remove();
+  panelWrapper.style.display = "none";
+
+  const extraContent = document.createElement("div");
+  extraContent.setAttribute("class", "extra-content");
+  mainScreen.appendChild(extraContent);
+
+  const notePanel = document.createElement("div");
+  notePanel.setAttribute("class", "note-panel");
+  extraContent.appendChild(notePanel);
+
+  const noteField = document.createElement("textarea");
+  noteField.setAttribute("class", "note-field");
+  noteField.setAttribute("id", "note-field");
+  noteField.setAttribute("placeholder", 'POST NOTES & EXECUTE COMMANDS');
+  notePanel.appendChild(noteField);
+
+  const addNote = document.createElement("button");
+  addNote.innerHTML = "Post Jot";
+  addNote.setAttribute("class", "note-btn");
+  addNote.setAttribute("title", "add a note");
+  notePanel.appendChild(addNote);
+  
+  const runBtn = document.createElement("button");
+  runBtn.innerHTML = "Execute CMD";
+  runBtn.setAttribute("class", "note-btn");
+  notePanel.appendChild(runBtn);
+  
+  let note2;
+  let note3;
+
+  let runKey = runBtn.onclick = function() {
+
+    if (noteField.value == "") {
+      note2 = document.createElement("div");
+      note2.innerHTML = "[System CMD]: Field contains no command! " + visitorInfo + " :)";
+      note2.setAttribute("class", "note-2");
+      note2.setAttribute("class", "note-del");
+      note2.setAttribute("id", "note");
+
+      alert(visitorInfo + ", no command has been detected!");
+      noteOutput.appendChild(note2);
+
+    } else if (noteField.value == "/projects") {
+        noteField.value = '';
+        note2 = document.createElement("div");
+        note2.innerHTML = "[ SYSTEM CMD ]: You accesed the developers further projects :)";
+        note2.setAttribute("class", "note-2");
+        note2.setAttribute("class", "note-del");
+        note2.setAttribute("id", "note");
+        note2.style.backgroundColor = "transparent";
+        note2.style.color = "orange";
+        noteOutput.appendChild(note2);
+
+        note2 = document.createElement("div");
+        note2.innerHTML = "<strong><em>[ DEVELOPER ]</em></strong>: These 3 projects are my own creations along with the random number generator and background changer, excluding the paint board :)";
+        note2.setAttribute("class", "note-2");
+        note2.setAttribute("class", "note-del");
+        note2.setAttribute("id", "note");
+        note2.style.backgroundColor = "transparent";
+        note2.style.color = "blue";
+        noteOutput.appendChild(note2);
+
+        extraContent.style.display = "none";
+
+        const projectMenu = document.createElement("div");
+        projectMenu.setAttribute("class", "project-menu");
+        projectMenu.setAttribute("target", "_blank");
+        mainScreen.appendChild(projectMenu);
+
+        const project1 = document.createElement("a");
+        project1.innerHTML = "OPTION MENU";
+        project1.setAttribute("href", "options.html");
+        project1.setAttribute("target", "_blank");
+        project1.setAttribute("class", "projects");
+        projectMenu.appendChild(project1);
+
+        const project2 = document.createElement("a");
+        project2.innerHTML = "AMBIENT FORM";
+        project2.setAttribute("href", "regform.html");
+        project2.setAttribute("target", "_blank");
+        project2.setAttribute("class", "projects");
+        projectMenu.appendChild(project2);
+
+        const project3 = document.createElement("a");
+        project3.innerHTML = "MYSTERY BOXES";
+        project3.setAttribute("href", "mysteryBoxes.html");
+        project3.setAttribute("target", "_blank");
+        project3.setAttribute("class", "projects");
+        projectMenu.appendChild(project3);
+
+        const returnBtn2 = document.createElement("button");
+        returnBtn2.innerHTML = "HOME";
+        returnBtn2.setAttribute("class", "note-btn");
+        projectMenu.appendChild(returnBtn2);
+
+        returnBtn2.onclick = function() {
+        projectMenu.style.display = "none";
+        panelWrapper.style.display = "block";
+      }
+      
+      const returnBtn3 = document.createElement("button");
+      returnBtn3.innerHTML = "Return";
+      returnBtn3.setAttribute("class", "note-btn");
+      projectMenu.appendChild(returnBtn3);
+
+      returnBtn3.onclick = function() {
+        projectMenu.style.display = "none";
+        extraContent.style.display = "block";
+        extraContent.style.display = "flex";
+        extraContent.style.justifyContent = "center";
+      }
+      } else if (noteField.value == "/randomNumGen") {
+          noteField.value = '';
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: You accesed the random number generator app!";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          note2.style.backgroundColor = "transparent";
+          note2.style.color = "orange";
+          noteOutput.appendChild(note2);
+
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: This program displays a random number from the range that can now be custom set!\n# The default (start) number is 10 :)";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          note2.style.backgroundColor = "transparent";
+          note2.style.color = "orange";
+          noteOutput.appendChild(note2);
+
+          const randomNumGen = document.createElement("iframe");
+          randomNumGen.setAttribute("src", "randomNumGenerator.html");
+          randomNumGen.setAttribute("class", "circles-cmd");
+          randomNumGen.setAttribute("id", "note");
+          noteOutput.appendChild(randomNumGen);
+      } else if (noteField.value == "/paintBoard") {
+          noteField.value = '';
+          const paintBoardFunc = function() {
+            extraContent.style.display = "none";
+            alert("Command was Accepted!");
+            const paintBoard = document.createElement("a");
+            paintBoard.innerHTML = "PAINT BOARD";
+            paintBoard.setAttribute("href", "paint.html");
+            paintBoard.setAttribute("target", "_blank");
+            paintBoard.setAttribute("class", "projects");
+            mainScreen.appendChild(paintBoard);
+          }
+          paintBoardFunc();
+      } else if (noteField.value == "/bgChanger") {
+          noteField.value = '';
+          alert("Command Valid");
+          extraContent.style.display = "none";
+          const bgChanger = document.createElement("a");
+          bgChanger.innerHTML = "Interactive Background Changer";
+          bgChanger.setAttribute("class", "projects");
+          bgChanger.setAttribute("href", "InterativeBoxBgChanger.html");
+          bgChanger.setAttribute("target", "_blank");
+          mainScreen.appendChild(bgChanger);
+      } else if (noteField.value == "/showAllCommands") {
+          noteField.value = '';
+          const passwordKey = "HTML";
+          const response = prompt("Enter Password Provided By Developer: ");
+
+          if (response == passwordKey) {
+          alert("Password Valid!");
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: Command Valid! All existing commands are listed below :)";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          note2.style.backgroundColor = "black";
+          noteOutput.appendChild(note2);
+
+          let cmdsListArr = ["/projects", "/randomNumGen", "/paintBoard", "/bgChanger", "/circles", "/counterApp", "/themes", '/powerUpBulbs', '(unavailable)', "/customBox", "/ambientCalc (unavailable)", "/showJotLogs", "/showAllCommands", "/createLock", "/clearAll", "/appVersion"];
+
+          for (let cmds = 0; cmds < cmdsListArr.length; cmds++) {
+            note2 = document.createElement("blockquote");
+            note2.innerHTML = "[ SYSTEM CMD ]: All commands were accesed and/or viewed " + visitorInfo + ".";
+            note2.innerHTML = "[ SYSTEM CMD ]: " + cmdsListArr[cmds];
+            note2.style.backgroundColor = "transparent";
+            note2.style.color = "orange";
+            note2.setAttribute("class", "note-2");
+            note2.setAttribute("class", "note-del");
+            note2.setAttribute("id", "note");
+            note2.style.cursor = "pointer";
+            noteOutput.appendChild(note2);
+            note2.onclick = function() {
+              noteField.value = cmdsListArr[cmds];
+            }
+          }
+        } else {
+          alert("Password Invalid!");
+        }
+      } else if (noteField.value == "/showJotLogs") {
+          noteField.value = '';
+          note3 = document.createElement("div");
+          note3.innerHTML = "[ SYSTEM CMD ]: Command Valid! - Note History is listed below.";
+          note3.setAttribute("class", "note-2");
+          note3.setAttribute("class", "note-del");
+          note3.setAttribute("id", "note");
+          note3.style.backgroundColor = "transparent";
+          note3.style.color = "orange";
+          noteOutput.appendChild(note3);
+         
+          for (let x = 0; x < noteLogArr.length; x++) {
+            note3 = document.createElement("div");
+            note3.setAttribute("class", "note-3");
+            note3.setAttribute("class", "note-del");
+            note3.setAttribute("id", "note-3");
+            note3.setAttribute("id", "note");
+            note3.innerHTML = "[ LOG ]: " + noteLogArr[x].innerHTML + "<br>";
+            noteOutput.appendChild(note3);
+          }
+      } else if (noteField.value == "/circles") {
+        noteField.value = '';
+        const circles = document.createElement("iframe");
+        circles.setAttribute("src", "circles.html");
+        circles.setAttribute("class", "circles-cmd");
+        circles.setAttribute("id", "note");
+        noteOutput.appendChild(circles);
+      } else if (noteField.value == "/counterApp") {
+        noteField.value = '';
+        const counterApp = document.createElement("iframe");
+        counterApp.setAttribute("src", "Counter.html");
+        counterApp.setAttribute("class", "counter-app");
+        counterApp.setAttribute("id", "note");
+        noteOutput.appendChild(counterApp);
+      } else if (noteField.value == "/themes") {
+        //alert('THEMES SHORTCUT ADDED TO CONTROL PANEL');
+        noteField.value = '';
+        note2 = document.createElement("div");
+        note2.innerHTML = "[ SYSTEM CMD ]: Commands Valid, " + visitorInfo + "This is the range of available themes :)" + "<br>";
+        note2.setAttribute("class", "note-2");
+        note2.setAttribute("class", "note-del");
+        note2.setAttribute("id", "note");
+        noteOutput.appendChild(note2);
+
+        const hrline = document.createElement("hr");
+        hrline.style.height = "3px";
+        hrline.style.backgroundColor = "azure";
+        hrline.style.marginTop = "10px";
+        hrline.style.marginBottom = "15px";
+        note2.appendChild(hrline);
+
+        const themesShortcutBtn = document.createElement("button");
+        themesShortcutBtn.innerHTML = "Themes";
+        themesShortcutBtn.setAttribute("class", "note-btn");
+        themesShortcutBtn.setAttribute("id", "themes-shortcut-btn");
+        notePanel.appendChild(themesShortcutBtn);
+
+        let created = false;
+
+        themesShortcutBtn.onclick = function() {
+          created = true;
+          const hrline = document.createElement("hr");
+          hrline.style.height = "3px";
+          hrline.style.backgroundColor = "azure";
+          hrline.style.marginTop = "10px";
+          hrline.style.marginBottom = "15px";
+          note2.appendChild(hrline);
+
+          noteField.value = "/themes";
+          runKey();
+
+          if (created == true) {
+            themesShortcutBtn.style.display = "none";
+          }
+         }
+
+        const theme1 = document.createElement("button");
+        theme1.innerHTML = "Red";
+        theme1.setAttribute("class", "theme-option");
+        theme1.style.backgroundColor = "red";
+        theme1.onclick = function() {
+          extraContent.style.backgroundColor = "red";
+          extraContent.style.borderColor = "azure";
+          notePanel.style.backgroundColor = "transparent";
+          notePanel.style.borderColor = "azure";
+          noteField.style.borderColor = "azure";
+          noteOutput.style.backgroundColor = "transparent";
+          noteOutput.style.borderColor = "azure";
+          mainScreen.style.backgroundColor = "black";
+          
+          const noteBtnsArr = document.getElementsByClassName("note-btn");
+
+          for (let nt = 0; nt < noteBtnsArr.length; nt++) {
+            noteBtnsArr[nt].style.borderColor = "azure";
+          }
+
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: Red theme was applied!";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          noteOutput.appendChild(note2);
+        }
+        note2.appendChild(theme1);
+
+        const theme2 = document.createElement("button");
+        theme2.innerHTML = "Deeppink";
+        theme2.setAttribute("class", "theme-option");
+        theme2.style.backgroundColor = "deeppink";
+        theme2.onclick = function() {
+          extraContent.style.backgroundColor = "deeppink";
+          extraContent.style.borderColor = "lightgreen";
+          notePanel.style.backgroundColor = "transparent";
+          notePanel.style.borderColor = "lightgreen";
+          noteField.style.borderColor = "lightgreen";
+          noteOutput.style.backgroundColor = "transparent";
+          noteOutput.style.borderColor = "lightgreen";
+          mainScreen.style.backgroundColor = "darkblue";
+
+          const noteBtnsArr = document.getElementsByClassName("note-btn");
+
+          for (let nt = 0; nt < noteBtnsArr.length; nt++) {
+            noteBtnsArr[nt].style.borderColor = "lightgreen";
+          }
+
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: Deeppink theme was applied!";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          noteOutput.appendChild(note2);
+        }
+        note2.appendChild(theme2);
+
+        const theme3 = document.createElement("button");
+        theme3.innerHTML = "Vibrant Purple";
+        theme3.setAttribute("class", "theme-option");
+        theme3.style.backgroundColor = "#f529f4";
+        theme3.onclick = function() {
+          extraContent.style.backgroundColor = "#f529f4";
+          extraContent.style.borderColor = "aqua";
+          notePanel.style.backgroundColor = "transparent";
+          notePanel.style.borderColor = "aqua";
+          noteField.style.borderColor = "aqua";
+          noteOutput.style.backgroundColor = "transparent";
+          noteOutput.style.borderColor = "aqua";
+          mainScreen.style.backgroundColor = "indigo";
+
+          const noteBtnsArr = document.getElementsByClassName("note-btn");
+
+          for (let nt = 0; nt < noteBtnsArr.length; nt++) {
+            noteBtnsArr[nt].style.borderColor = "aqua";
+          }
+
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: Vibrant Purple theme was applied!";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          noteOutput.appendChild(note2);
+        }
+        note2.appendChild(theme3);
+
+        const theme4 = document.createElement("button");
+        theme4.innerHTML = "Mystery Theme";
+        theme4.setAttribute("class", "theme-option");
+        theme4.style.backgroundImage = "black";
+        theme4.onclick = function() {
+          mainScreen.style.backgroundColor = "#201408";
+          extraContent.style.backgroundColor = "#201408";
+          extraContent.style.borderColor = "whitesmoke";
+          notePanel.style.backgroundColor = "transparent";
+          notePanel.style.borderColor = "indigo";
+          noteField.style.borderColor = "whitesmoke";
+          noteOutput.style.backgroundColor = "transparent";
+          noteOutput.style.borderColor = "";
+          mainScreen.style.backgroundColor = "darkslategrey";
+
+          const noteBtnsArr = document.getElementsByClassName("note-btn");
+
+          for (let nt = 0; nt < noteBtnsArr.length; nt++) {
+            noteBtnsArr[nt].style.borderColor = "indigo";
+          }
+
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: Gold theme was applied!";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del")
+          note2.setAttribute("id", "note");
+          noteOutput.appendChild(note2);
+        }
+        note2.appendChild(theme4);
+
+        const theme5 = document.createElement("button");
+        theme5.innerHTML = "Deep Blue";
+        theme5.setAttribute("class", "theme-option");
+        theme5.onclick = function() {
+          extraContent.style.backgroundColor = "deepskyblue";
+          extraContent.style.borderColor = "purple";
+          notePanel.style.borderColor = "purple";
+          noteField.style.borderColor = "purple";
+          noteOutput.style.borderColor = "purple";
+          mainScreen.style.backgroundColor = "#0066b2";
+
+          const noteBtnsArr = document.getElementsByClassName("note-btn");
+
+          for (let nt = 0; nt < noteBtnsArr.length; nt++) {
+            noteBtnsArr[nt].style.borderColor = "purple";
+          }
+
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: Deep Blue theme was applied!";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          noteOutput.appendChild(note2);
+        }
+        note2.appendChild(theme5);
+
+        const defaultTheme = document.createElement("button");
+        defaultTheme.innerHTML = "Original";
+        defaultTheme.setAttribute("class", "theme-option");
+        defaultTheme.onclick = function() {
+          extraContent.style.backgroundColor = "transparent";
+          extraContent.style.borderColor = "orange";
+          notePanel.style.borderColor = "orange";
+          noteField.style.borderColor = "orange";
+          noteOutput.style.borderColor = "orange";
+          mainScreen.style.backgroundColor = "black";
+
+          const noteBtnsArr = document.getElementsByClassName("note-btn");
+
+          note2 = document.createElement("div");
+          note2.innerHTML = "[ SYSTEM CMD ]: The default theme was applied!";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          noteOutput.appendChild(note2);
+        }
+        note2.appendChild(defaultTheme);
+
+          const theme6 = document.createElement("button");
+          theme6.innerHTML = "Mix / Combine Themes";
+          theme6.setAttribute("class", "theme-option");
+          theme6.onclick = function() {
+            extraContent.style.backgroundColor = "none";
+            extraContent.style.borderColor = "black";
+            notePanel.style.background = "none";
+            notePanel.style.borderColor = "black";
+            noteField.style.backgroundColor = "lightgrey";
+            noteField.style.borderColor = "black";
+            noteField.style.color = "black";
+            noteOutput.style.backgroundColor = "lightgrey";
+            noteOutput.style.color = "black";
+            noteOutput.style.borderColor = "black";
+            mainScreen.style.backgroundColor = "whitesmoke";
+
+            for (let nt2; nt2 < noteBtnsArr.length; nt++) {
+              noteBtnsArr[nt2].style.borderColor = "lightgrey";
+              noteBtnsArr[nt2].style.backgroundColor = "none";
+            }
+
+            note2 = document.createElement("div");
+            note2.innerHTML = "[ SYSTEM CMD ]: The Modern theme has been applied.";
+            note2.setAttribute("class", "note-2");
+            note2.setAttribute("class", "note-del");
+            note2.setAttribute("id", "note");
+            noteOutput.appendChild(note2);
+          }
+          note2.appendChild(theme6);
+
+
+      } else if (noteField.value == "/nan") {
+        noteField.value = '';
+        notePanel.style.display = "none";
+        noteOutput.style.display = "none";
+        extraContent.style.padding = "25px";
+
+        bulbs = document.createElement("iframe");
+        bulbs.setAttribute("src", "bulbsgame.html");
+        bulbs.setAttribute("class", "circles-cmd");
+        bulbs.setAttribute("id", "note");
+        extraContent.appendChild(bulbs);
+
+        const returnBtn3 = document.createElement("button");
+        returnBtn3.innerHTML = "Return";
+        returnBtn3.setAttribute("class", "note-btn");
+        extraContent.appendChild(returnBtn3);
+
+        returnBtn3.onclick = function() {
+          returnBtn3.style.display = "none";
+          bulbs.style.display = "none";
+          notePanel.style.display = "block";
+          noteOutput.style.display = "block";
+          noteOutput.style.width = '95%';
+          noteOutput.style.height = '65%';
+          extraContent.style.display = "flex";
+          extraContent.style.justifyContent = "center";
+        }
+      } else if (noteField.value == "/customBox") {
+        noteField.value = '';
+        const customBox = document.createElement("iframe");
+        customBox.setAttribute("src", "customBox.html");
+        customBox.setAttribute("class", "counter-app");
+        customBox.setAttribute("id", "note");
+        notePanel.style.display = "none";
+        noteOutput.style.display = "none";
+        extraContent.appendChild(customBox);
+
+        const returnBtn3 = document.createElement("button");
+        returnBtn3.innerHTML = "Return";
+        returnBtn3.setAttribute("class", "note-btn");
+        extraContent.appendChild(returnBtn3);
+
+        returnBtn3.onclick = function() {
+          returnBtn3.style.display = "none";
+          customBox.style.display = "none";
+          notePanel.style.display = "block";
+          noteOutput.style.display = "block";
+          noteOutput.style.height
+          extraContent.style.display = "flex";
+          extraContent.style.justifyContent = "center";
+        }
+      } else if (noteField.value == "/nan") {
+        noteField.value = '';
+        notePanel.style.display = "none";
+        noteOutput.style.display = "none";
+        extraContent.style.padding = "25px";
+
+        ambientCalc = document.createElement("iframe");
+        ambientCalc.setAttribute("src", "Classicambientcalc.html");
+        ambientCalc.setAttribute("class", "circles-cmd");
+        ambientCalc.setAttribute("id", "note");
+        extraContent.appendChild(ambientCalc);
+
+        const returnBtn3 = document.createElement("button");
+        returnBtn3.innerHTML = "Return";
+        returnBtn3.setAttribute("class", "note-btn");
+        extraContent.appendChild(returnBtn3);
+
+        returnBtn3.onclick = function() {
+          returnBtn3.style.display = "none";
+          ambientCalc.style.display = "none";
+          notePanel.style.display = "block";
+          noteOutput.style.display = "block";
+          noteOutput.style.width = '95%';
+          noteOutput.style.height = '80%';
+          extraContent.style.display = "flex";
+          extraContent.style.justifyContent = "center";
+        }
+      } else if (noteField.value == "/castleGame") {
+          noteField.value = '';
+          note2 = document.createElement("a");
+          note2.innerHTML = 'Play Castle Defence';
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("id", "note");
+          note2.setAttribute("href", "castle defence.html");
+          note2.style.marginTop = "8px";
+          note2.style.fontSize = "16px";
+          note2.style.fontWeight = "bold";
+          note2.style.fontFamily = "monospace, Verdana, Arial, sans-serif";
+          noteOutput.appendChild(note2);
+      } else if (noteField.value == "/memoryGame") {
+          noteField.value = '';
+          note2 = document.createElement("a");
+          note2.innerHTML = "Play Memory Game";
+          note2.setAttribute("class", "note-2");
+          note2.setAttribute("class", "note-del");
+          note2.setAttribute("id", "note");
+          note2.setAttribute("href", "index.html");
+          note2.style.marginTop = "8px";
+          note2.style.fontSize = "16px";
+          note2.style.fontWeight = "bold";
+          note2.style.fontFamily = "monospace, Verdana, Arial, sans-serif";
+          noteOutput.appendChild(note2);
+      } else if (noteField.value == "/createLock") {
+          noteField.value = '';
+          const response = alert("Command accepted. create your password in the next field");
+
+          const passwordPanel = document.createElement("div");
+          passwordPanel.setAttribute("class", "password-panel");
+          passwordPanel.setAttribute("id", "note");
+          noteOutput.appendChild(passwordPanel);
+
+          const passwordField = document.createElement("input");
+          passwordField.setAttribute("class", "password-field");
+          passwordField.setAttribute("type", "text");
+          passwordField.setAttribute("id", "password-field");
+          passwordField.setAttribute("placeholder", "######");
+          passwordPanel.appendChild(passwordField);
+
+          const submitBtn = document.createElement("button");
+          submitBtn.setAttribute("class", "submit-btn");
+          submitBtn.setAttribute("id", "submit-btn");
+          submitBtn.innerHTML = "Set Password";
+          passwordPanel.appendChild(submitBtn);
+
+          const userWarn = document.createElement("p");
+          userWarn.innerHTML = "Set a Passkey that you will remember " + visitorInfo + ":)";
+          userWarn.style.color = "cyan";
+          userWarn.style.fontSize = "15px";
+          userWarn.style.textAlign = "center";
+          passwordPanel.appendChild(userWarn);
+        
+          submitBtn.onclick = function() {
+            let savedPassword = passwordField.value;
+
+            alert("For security, you'll now be locked out only so you can confirm your password :)");
+            extraContent.style.display = "none";
+
+            const accessBtn = document.createElement("button");
+            accessBtn.innerHTML = "Get Back In!";
+            accessBtn.setAttribute("class", "submit-btn");
+            accessBtn.setAttribute("id", "access-btn");
+            document.getElementById("main-screen").appendChild(accessBtn);
+
+            accessBtn.onclick = function() {
+              const confirmPassword = prompt("Enter & Confirm your Password..");
+
+              if (confirmPassword == savedPassword) {
+                alert("You're Back In " + visitorInfo + "!");
+                extraContent.style.display = "flex";
+                document.getElementById("access-btn").style.display = "none";
+
+                const lockAppBtn = document.createElement("button");
+                lockAppBtn.innerHTML = "Lock App";
+                lockAppBtn.setAttribute("class", "note-btn");
+                lockAppBtn.setAttribute("id", "lock-app-btn");
+                lockAppBtn.style.marginLeft = "1px";
+                notePanel.appendChild(lockAppBtn);
+
+                lockAppBtn.onclick = function() {
+                  const lockResponse = confirm("You're going to be Locked Out! You want to procceed?");
+                  if (lockResponse == true) {
+                    extraContent.style.display = "none";
+
+                    const accessBtn = document.createElement("button");
+                    accessBtn.innerHTML = "Get Back In!";
+                    accessBtn.setAttribute("class", "submit-btn");
+                    accessBtn.setAttribute("id", "access-btn");
+                    document.getElementById("main-screen").appendChild(accessBtn);
+
+                    accessBtn.onclick = function() {
+                      const response2 = prompt("Enter Your Passkey...");
+                      
+
+                      if (response2 == savedPassword) {
+                        note2.innerHTML = "[System CMD]: --logged in-- Welcome back, " + visitorInfo;
+                        noteOutput.appendChild(note2);
+
+
+                        extraContent.style.display = "flex";
+                        accessBtn.style.display = "none";
+                      } else {
+                        extraContent.style.display = "none";
+                        alert("Passkey does not match the database " + visitorInfo + "!");
+                      }
+                    }
+                  } else {
+                    extraContent.style.display = "flex";
+                  }
+                }
+
+              } else {
+                extraContent.style.display = "none";
+                alert("The passwords don't match " + visitorInfo + "!");
+              }
+            }
+          }
+
+      } else if (noteField.value == "/appVersion") {
+          noteField.value = '';
+          note2.innerHTML = "[System CMD]: This app (calc&jot) has the latest v1.7.1 update. This aims to be a modernised version.";
+          noteOutput.appendChild(note2);
+      } else if (noteField.value == "/clearAll") {
+          let Notes = document.querySelectorAll(".note-del");
+
+          Notes.forEach(Note => {
+            Note.remove();
+          });
+      } else if (noteField.value == "/fullScreen") {
+          noteField.value = '';
+          notePanel.style.display = "none";
+          noteOutput.style.height = "85%";
+          alert("Full Screen option is Unlocked!");
+
+          const regularScreenBtn = document.createElement("button");
+          regularScreenBtn.innerHTML = "Shrink";
+          regularScreenBtn.setAttribute("class", "note-btn");
+          regularScreenBtn.style.marginTop = "2px";
+          regularScreenBtn.style.borderRadius = "7px";
+          extraContent.appendChild(regularScreenBtn);
+
+          regularScreenBtn.onclick = function() {
+             regularScreenBtn.style.display = "none";
+             noteOutput.style.height = "58%";
+             notePanel.style.display = "block";
+
+             const fullScreenBtn = document.createElement("button");
+             fullScreenBtn.innerHTML = "Enlarge";
+             fullScreenBtn.setAttribute("class", "note-btn");
+             fullScreenBtn.style.marginRight = "8px";
+             notePanel.appendChild(fullScreenBtn);
+
+             fullScreenBtn.onclick = function() {
+              fullScreenBtn.style.display = "none";
+              notePanel.style.display = "none";
+              noteOutput.style.height = "85%";
+
+              const regularScreenBtn = document.createElement("button");
+              regularScreenBtn.innerHTML = "Shrink";
+              regularScreenBtn.setAttribute("class", "note-btn");
+              regularScreenBtn.style.marginTop = "2px";
+              extraContent.appendChild(regularScreenBtn);
+
+              regularScreenBtn.onclick = function() {
+                regularScreenBtn.style.display = "none";
+                fullScreenBtn.style.display = "inline-flex";
+                fullScreenBtn.style.margin = "0 auto";
+                noteOutput.style.height = "58%";
+                notePanel.style.display = "block";
+              }
+             }
+          }
+      } else {
+        note2 = document.createElement("div");
+        note2.innerHTML = "[ SYSTEM CMD ]: " + `<em>${noteField.value}</em>` + " isn't a valid command!";
+        note2.setAttribute("class", "note-2");
+        note2.setAttribute("class", "note-del");
+        note2.setAttribute("id", "note");
+        noteOutput.appendChild(note2);
+      }
+  }
+
+  addNote.onclick = function() {
+    const note = document.createElement("div");
+    note.setAttribute("class", "note");
+    note.setAttribute("class", "note-del");
+    note.setAttribute("id", "note");
+    noteLogArr.push(note);
+    noteOutput.appendChild(note);
+
+    if (note.length > 50) {
+      note.value = "<br>";
+    }
+
+    if (noteField.value == "") {
+      let responsesArr = ["You still didn't write anything, it's okay if you don't like this function you access my other projects through commands!", "As you probably noticed by now each time you post there is a different message. I aim to make my program as responsive as possible.", "You didn't write anything", "Come on, the field is still empty", "Are you serius?", "You need to enter something!!", "That's it, I give up :(", "if you happen to get this message. Good news is I will continue adding further functionality.", "If you don't wanna write anything, return to the calculator " + visitorInfo + "! :)"];
+      let randomResponse = responsesArr [Math.floor(Math.random()*responsesArr.length)];
+      note.innerHTML = "[ SYSTEM CMD ]: " + randomResponse + ", " + visitorInfo + "!";
+      note.setAttribute("class", "note-2");
+      note.setAttribute("class", "note-del");
+      note.style.backgroundColor = "transparent";
+      note.style.color = "yellow";
+      note.onmouseover = function() {
+        note.style.backgroundColor = "darkblue";
+        note.style.color = "azure";
+        note.onmouseout = function() {
+          note.style.backgroundColor = "yellow";
+          note.style.color = "black";
+        }
+      }
+    } else {
+      note.innerHTML = "[" + visitorInfo.toUpperCase() + "]: " + noteField.value;
+      note.style.backgroundColor = "black";
+      note.style.color = "aqua";
+    }
+  }
+
+  const deleteNote = document.createElement("button");
+  deleteNote.innerHTML = "Delete Jot";
+  deleteNote.setAttribute("class", "note-btn");
+  deleteNote.setAttribute("title", "clear single jot");
+  notePanel.appendChild(deleteNote);
+
+  deleteNote.onclick = function() {
+      const result = document.getElementById("note");
+      result.remove();
+  }
+
+  const deleteNotes = document.createElement("button");
+  deleteNotes.innerHTML = "Clear All";
+  deleteNotes.setAttribute("class", "note-btn");
+  deleteNotes.setAttribute("title", "clear all jots");
+  notePanel.appendChild(deleteNotes);
+
+  deleteNotes.onclick = function() {
+    let Notes = document.querySelectorAll(".note-del");
+
+    Notes.forEach(Note => {
+      Note.remove();
+    });
+  }
+
+  const noteOutput = document.createElement("div");
+  noteOutput.setAttribute("class", "note-output");
+  noteOutput.setAttribute("id", "note-output");
+  extraContent.appendChild(noteOutput);
+
+  note2 = document.createElement("div");
+  note2.innerHTML = "<strong><em>[ DEVELOPER ]:</em></strong> Hi & Welcome, and welcome to my project " + visitorInfo + "\n This is simply a welcome message & I hope you found my program simple to use and maybe cool :). To help out type <span>/showAllCommands</span> and click run :)";
+  note2.setAttribute("class", "note-2");
+  note2.setAttribute("class", "note-del");
+  note2.setAttribute("id", "note");
+  note2.style.backgroundColor = "transparent";
+  note2.style.color = "lightcyan";
+  noteLogArr.push(note2);
+  noteOutput.appendChild(note2);
+
+  note2 = document.createElement("div");
+  note2.innerHTML = "<strong><em>[ DEVELOPER ]:</em></strong> Just adding this note to let it be known that I am always working on more interesting updates! ;)";
+  note2.setAttribute("class", "note-2");
+  note2.setAttribute("class", "note-del");
+  note2.setAttribute("id", "note");
+  note2.style.backgroundColor = "transparent";
+  note2.style.color = "lightcyan";
+  noteLogArr.push(note2);
+  noteOutput.appendChild(note2);
+
+  note2 = document.createElement("div");
+  note2.innerHTML = "<strong><em>[ DEVELOPER ]:</em></strong> Improvements & minor fixes made!. Now it's possible to apply themes other than the default :) Enter <span>/themes</span> to give it a go!";
+  note2.setAttribute("class", "note-2");
+  note2.setAttribute("class", "note-del");
+  note2.setAttribute("id", "note");
+  note2.style.backgroundColor = "transparent";
+  note2.style.color = "lightcyan";
+  noteLogArr.push(note2);
+  noteOutput.appendChild(note2);
+
+  note2 = document.createElement("div");
+  note2.innerHTML = "<strong><em>[ DEVELOPER ]:</em></strong> Update 1.7 is now applied and introduces much better styles for things, and most interestingly there are new functions. It's now possible to create a password and lock the app, and when you want to use it again just log in :) Type <span>/createLock</span> to test it out";
+  note2.setAttribute("class", "note-2");
+  note2.setAttribute("class", "note-del");
+  note2.setAttribute("id", "note");
+  note2.style.backgroundColor = "transparent";
+  note2.style.color = "lightcyan";
+  noteLogArr.push(note2);
+  noteOutput.appendChild(note2);
+
+  note2 = document.createElement("div");
+  note2.innerHTML = "<strong><em>Developer</em></strong> Update 1.7.1 (modernised version) introduces a lot more helpful commands & tools even improvemets to visibility & navigation. It's now possible to set up a passkey and lock your app.";
+  note2.setAttribute("class", "note-2");
+  note2.setAttribute("class", "note-del");
+  note2.setAttribute("id", "note");
+  note2.style.backgroundColor = "transparent";
+  note2.style.color = "lightcyan";
+  noteLogArr.push(note2);
+  noteOutput.appendChild(note2);
+
+  notePanel.style.display = "none";
+          noteOutput.style.height = "85%";
+
+          const regularScreenBtn = document.createElement("button");
+          regularScreenBtn.innerHTML = "Shrink";
+          regularScreenBtn.setAttribute("class", "note-btn");
+          regularScreenBtn.style.marginTop = "2px";
+          extraContent.appendChild(regularScreenBtn);
+
+          regularScreenBtn.onclick = function() {
+             regularScreenBtn.style.display = "none";
+             noteOutput.style.height = "58%";
+             notePanel.style.display = "block";
+
+             const fullScreenBtn = document.createElement("button");
+             fullScreenBtn.innerHTML = "Enlarge";
+             fullScreenBtn.setAttribute("class", "note-btn");
+             note2.appendChild(fullScreenBtn);
+
+             fullScreenBtn.onclick = function() {
+              fullScreenBtn.style.display = "none";
+              notePanel.style.display = "none";
+              noteOutput.style.height = "85%";
+
+              const regularScreenBtn = document.createElement("button");
+              regularScreenBtn.innerHTML = "Shrink";
+              regularScreenBtn.setAttribute("class", "note-btn");
+              regularScreenBtn.style.marginTop = "2px";
+              regularScreenBtn.style.borderRadius = "7px";
+              extraContent.appendChild(regularScreenBtn);
+
+              regularScreenBtn.onclick = function() {
+                regularScreenBtn.style.display = "none";
+                fullScreenBtn.style.display = "block";
+                fullScreenBtn.style.margin = "0 auto";
+                noteOutput.style.height = "58%";
+                notePanel.style.display = "block";
+              }
+             }
+            }
+       
+            note2 = document.createElement("div");
+  note2.innerHTML = "<strong><em>Developer</em></strong> Try out the new panel expansion feature!" + "<em>To unlock the enlarge key execute <span>/fullScreen</span> :) </em>" + "<br>";
+  note2.setAttribute("class", "note-2");
+  note2.setAttribute("class", "note-del");
+  note2.setAttribute("id", "note");
+  note2.style.backgroundColor = "transparent";
+  note2.style.color = "lightcyan";
+  noteLogArr.push(note2);
+  noteOutput.appendChild(note2);
+
+
+  const returnBtn = document.createElement("button");
+  returnBtn.innerHTML = " | HOME | ";
+  returnBtn.setAttribute("class", "note-btn");
+  returnBtn.setAttribute("title", "return to calculator");
+  notePanel.appendChild(returnBtn);
+
+ 
+  returnBtn.onclick = function() {
+
+    extraContent.style.display = "none";
+    panelWrapper.style.display = "block";
+    
+    //operatorsWrapper.style.justifyContent = 'center';
+    //operatorsWrapper.style.alignItems = 'center';
+
+    const returnBtn3 = document.createElement("button");
+    returnBtn3.innerHTML = " | JOTS |";
+    returnBtn3.setAttribute("class", "back-jots-btn");
+    returnBtn3.setAttribute("id", "back-jots-btn");
+    returnBtn3.style.margin = "0 auto";
+    returnBtn3.style.height = '80px';
+    returnBtn3.style.borderRadius = '10px';
+    returnBtn3.style.marginLeft = "8.5px";
+    operatorsWrapper.appendChild(returnBtn3);                  // jots home btn
+
+    returnBtn3.onclick = function() {
+      returnBtn3.style.display = "none";
+      panelWrapper.style.display = "none";
+      extraContent.style.display = "block";
+      extraContent.style.display = "flex";
+      extraContent.style.justifyContent = "center";
+   
+  }
+  }
+  
+  const infoBtn = document.createElement("button");
+  infoBtn.innerHTML = "Help";
+  infoBtn.setAttribute("class", "note-btn");
+  notePanel.appendChild(infoBtn);
+
+  infoBtn.onclick = function() {
+    alert("# Create Notes!\n# Execute Commands! \n# Play around with mini-projects! \n# It's now possible to change themes :)\n# Enter /showAllCommands to display all available commands!");
+  }
+})
+
+clearButton.addEventListener("click", function() { // clear function
+  const element = document.getElementById("result-element");
+  element.remove();
+})
+
+document.getElementById("dev-notes-key").onclick = function() {
+  document.getElementById("dev-notes-key").style.display = "none";
+  document.getElementById("clear-btn").style.display = "none";
+  document.getElementById("enlarge-results").style.display = "none";
+  document.getElementById("result-wrapper").style.maxHeight = "100px";
+  inputsSection.style.display = "none";
+  operatorsWrapper.style.display = "none";
+
+  const devNotesPanel = document.createElement("div");
+  devNotesPanel.setAttribute("id", "dev-notes-panel");
+  devNotesPanel.setAttribute("class", "dev-notes-panel");
+  panelWrapper.appendChild(devNotesPanel);
+
+  const devNotesBackKey = document.createElement("button");
+  devNotesBackKey.innerHTML = "Close Window";
+  devNotesBackKey.setAttribute("class", "dev-back-key");
+  document.getElementById("result-wrapper").style.display = "block";
+  panelWrapper.appendChild(devNotesBackKey);
+
+  devNotesBackKey.onclick = function() {
+    devNotesBackKey.style.display = "none";
+    document.getElementById("enlarge-results").style.display = "block";
+    devNotesPanel.style.display = "none";
+    document.getElementById("dev-notes-key").style.display = "block";
+    document.getElementById("clear-btn").style.display = "block";
+    document.getElementById("result-wrapper").style.maxHeight = "200px";
+    inputsSection.style.display = "flex";
+    operatorsWrapper.style.display = "flex";
+  }
+  
+  const para1 = document.createElement("p");
+  para1.innerHTML = "- New Update 1.7 is purely about a users comfort in all ways, for example using light colors that are eye-friendly & other aesthetic improvements!" + "<br>" + "- Update 1.7 introduces a faster way of deleting notes. Simply with the command '/clearAll'";
+  para1.setAttribute("class", "dev-note")
+  devNotesPanel.appendChild(para1);
+
+  const para2 = document.createElement("p");
+  para2.innerHTML = "- Backdoors for developer were introduced." + "<br>" + "- It's now possible to expand the jot output panel!";
+  para2.setAttribute("class", "dev-note");
+  devNotesPanel.appendChild(para2);
+
+  const para3 = document.createElement("p");
+  para3.innerHTML = "- Update 1.7.1 (modernised version brings along further improvements to navigation, new functions & commands to experiment with! It's possible now to unlock the screen enlarging feature and app lock.";
+  para3.setAttribute("class", "dev-note");
+  devNotesPanel.appendChild(para3);
+}
+
+// version 1.2:
+// Added delete function
+// Improved looks and interactivity
+
+// Version 1.3:
+// More suitable style modifications were made with further look improvement.
+// Note section added!
+// Further functions added
+
+
+// Version 1.4:
+// More detail added!
+// Interface is simpler
+// Even better improvements in aesthetics!
+
+// Version 1.5:
+// Improved functioning and details
+// Colors made more suitable and readable
+// Fixed small aspects
+
+// Version 1.6 (major):
+// Major improvements & additions to interactivity!
+// Updated Visuals such as info and color spectrum!
+// Simplicity assured!
+	</script>
+  </body>
+</html>

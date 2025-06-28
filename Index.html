@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Personal Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee+Spice&family=Press+Start+2P&display=swap" rel="stylesheet">
+  </head>
+  <body id="root">
+    <div id="root-container" class="root-container">
+      <h3 id="title">PERSONAL PORTAL V1.8</h3>
+      <h4 id="name-of-visitor"></h4>
+      <div id="pin-access-panel" class="pin-access-panel">
+        <input type="number" id="pin-access-inp" class="pin-access-inp" placeholder="0000">
+        <p class="info-par" id="info-par">ENTER THE 4-DIGIT PASSKEY PROVIDED BY CREATOR MULTIVERSE</p>
+      </div>
+      <div id="num-key-panel" class="num-key-panel">
+        <div onclick="PIN_ACCESS_INP.value += '1' " class="num-btn" value="1">1</div>
+        <div onclick="PIN_ACCESS_INP.value += '2' " class="num-btn" value="2">2</div>
+        <div onclick="PIN_ACCESS_INP.value += '3' " class="num-btn" value="3">3</div>
+        <br>
+        <div onclick="PIN_ACCESS_INP.value += '4' " class="num-btn" value="4">4</div>
+        <div onclick="PIN_ACCESS_INP.value += '5' " class="num-btn" value="5">5</div>
+        <div onclick="PIN_ACCESS_INP.value += '6' " class="num-btn" value="6">6</div>
+        <br>
+        <div onclick="PIN_ACCESS_INP.value += '7' " class="num-btn" value="7">7</div>
+        <div onclick="PIN_ACCESS_INP.value += '8' " class="num-btn" value="8">8</div>
+        <div onclick="PIN_ACCESS_INP.value += '9' " class="num-btn" value="9">9</div>
+      </div>
+      <div id="welcome-panel" class="welcome-panel" style="display: none">
+        <h2 id="h2-1">WELCOME TO THE PORTAL OF MULTIVERSE</h2>
+        <p class="info-par" id="info-par-2">This program is in-development & will turn out to be a helpful multitool!</p>
+        <p class="info-par"  id="info-par-3"style="font-family: Verdana; color: #89CFF0; margin-bottom: 10px">The portal will allow access to various tools & or personal projects to store them all in one place!</p>
+        <p class="info-par" id="info-par-4">Go to | JOTS | and execute the command as follows | /showAllCommands |. This command requires a password which is simply | HTML |</p><hr>
+        <button onclick="closeWelcomePanel()" style="margin auto" id="close-welcome-panel" class="pin-control-btn">CONTINUE >></button>
+        <div id="main-option-menu" class="main-option-menu" style="display: none">
+          <button style="background-image: linear-gradient(#E0115F, #E0115F); color: aliceblue;" onclick="openCalcJot()" class="option-block">MULTITOOL</button><br>
+          <button onclick="showMusicPanel()" id="show-music-panel" class="option-block">MUSIC</button>
+          <button onclick="showVideosPanel()" id="show-videos-panel" class="option-block">VIDEOS</button>
+          <button onclick="showPortalInfo()" class="option-block">INFO</button>
+          <button onclick="showThemes()" id="dev-btn" class="option-block">THEMES</button>
+          <button onclick="showPatchNotes()" style="background-color: darkblue" onclick="inDevMssg()" class="option-block">PATCHES</button>
+          <button onclick="logoutPortal()" class="option-block" style="background-color: darkblue">| LOGOUT |</button>
+          <button onclick="openLobby()" id="in-dev" class="option-block" style="background-color: blue">| IN-DEV |</button>
+        </div>
+        <button style="display: none; margin-bottom: 5px" onclick="closeCalcJot()" class="pin-control-btn" id="close-calc-jot">CLOSE PROGRAM (×)</button> <br id="br-1">
+        <buttom style="display: none" onclick="closePortalInfo()" class="pin-control-btn" id="close-portal-info">CLOSE (×)</buttom>
+        <iframe src="projects/Calc&Jot V1.8.html" class="calc-jot-app" id="calc-jot-app" style="display: none">
+          
+        </iframe>
+        <button style="display: none; margin: auto" id="close-patch-notes-btn" onclick="closePatchNotes()" class="pin-control-btn">CLOSE (x)</button>
+        <div style="display: none" class="patch-notes-panel" id="patch-notes-panel">
+          <h3 style="text-align: center">PATCH NOTES HISTORY</h3> <hr>
+          <p style="font-size: 21px"><h4>[ V1.6 ]: </h4> Minor improvements to the structure of panels. | MUSIC | panel now contains several music tracks</p> <hr>
+          <p style="font-size: 21px"><h4>[ V1.7.1 ]: </h4> Further improvement to the entire portal. Secondly 2 new options added to portal hub | THEMES | and | PATCHES |.</p> <hr>
+          <p style="font-size: 21px"><h4>[ V1.8 ]: </h4> Sizing issues were optimised and all panels appearance improved. All panels are greatly enlarged for improved visibility on mobile & desktops. New | GAMES | option added which displays a list of basic HTML games!</p> <hr>
+        </div>
+        <div style="display: none" id="personal-music-panel" class="personal-music-panel">
+          <button onclick="closeMusicPanel()" style="display: none; margin: auto;" id="close-music-panel" class="pin-control-btn">CLOSE PANEL (×)</button> <br>
+          <hr>
+          <h3>TRACK-1</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Liminal Spaces, Poolrooms, Dreamcore</p>
+          <audio controls loop class="audio">
+            <source src="Audip/So Silent  Alone.mp3" type="audio/ogg">
+            <source src="Audio/So Silent  Alone.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-2</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Liminal Spaces, Poolrooms, Dreamcore</p>
+          <audio controls loop class="audio">
+            <source src="Audip/lifeless alone peaceful.mp3" type="audio/ogg">
+            <source src="Audio/lifeless alone peaceful.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-3</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Liminal Spaces, Poolrooms, Dreamcore</p>
+          <audio controls loop class="audio">
+            <source src="Audio/Which way_.mp3" type="audio/ogg">
+            <source src="Audio/Which way_.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-4</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Interstellar (eternity)</p>
+          <audio controls loop class="audio">
+            <source src="Audio/Eternity isnt the end.mp3" type="audio/ogg">
+            <source src="Audio/Eternity isnt the end.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-5</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Everybody Wants To Rule The World</p>
+          <audio controls loop class="audio">
+            <source src="Audio/Lethal Protector.mp3" type="audio/ogg">
+            <source src="Audio/Lethal Protector.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-6</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Fortnite Emote - Wind Up (slowed + reverbed)</p>
+          <audio controls loop class="audio">
+            <source src="Audio/windup.mp3" type="audio/ogg">
+            <source src="Audio/windup.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-7</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Vampire Masquerade</p>
+          <audio controls loop class="audio">
+            <source src="Audio/vampire masquerade.mp3" type="audio/ogg">
+            <source src="Audio/vampire masquerade.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-8</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Thai Flute Performance</p>
+          <audio controls loop class="audio">
+            <source src="Audio/thai flute.mp3" type="audio/ogg">
+            <source src="Audio/thai flute.mp3" type="audio/ogg">
+          </audio><hr>
+          <h3>TRACK-9</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Fortnite Emote - Slap Happy (slowed + low pitch)</p>
+          <audio controls loop class="audio">
+            <source src="Audio/slap happy.mp3" type="audio/ogg">
+            <source src="Audio/slap happy.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-10</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Made In Romania</p>
+          <audio  controls loop class="audio">
+            <source src="Audio/romania.mp3" type="audio/ogg">
+            <source src="Audio/romania.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-11</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Lil Tecca - Ransom (slowed + low pitch)</p>
+          <audio controls loop class="audio">
+            <source src="Audio/ransom.mp3" type="audio/ogg">
+            <source src="Audio/ransom.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-12</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Sapientdream - Past Lives (slowed + reverbed)</p>
+          <audio controls loop class="audio">
+            <source src="Audio/past lives.mp3" type="audio/ogg">
+            <source src="Audio/past lives.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-13</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Banda Carrapicho - Musica Yama</p>
+          <audio controls loop class="audio">
+            <source src="Audio/musica yama.mp3" type="audio/ogg">
+            <source src="Audio/musica yama.mp3" type="audio.mpeg">
+          </audio><hr>
+          <h3>TRACK-14</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Kalyi Jag - Mori Shej, Sabina (slowed + low pitch)</p>
+          <audio controls loop class="audio">
+            <source src="Audio/mori shej.mp3" type="audio/ogg">
+            <source src="Audio/mori shej.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-15</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Memories Of Old Slovakia</p>
+          <audio controls loop class="audio">
+            <source src="Audio/memories of old slovakia.mp3" type="audio/ogg">
+            <source src="Audio/memories of old slovakia.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-16</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Minecraft - Key (C418)</p>
+          <audio controls loop class="audio">
+            <source src="Audio/key.mp3" type="audio/ogg">
+            <source src="Audio/key.mp3" type="audio/mpeg">
+          </audio><hr>
+          <h3>TRACK-17</h3>
+          <p style="color: snow; font-size: 20px; margin-bottom: 5px; font-family: monospace, Arial">Kandinsky</p>
+          <audio controls loop class="audio">
+            <source src="Audio/kandinsky.mp3" type="audio/ogg">
+            <source src="Audio/kandinsky.mp3" type="audio/mpeg">
+          </audio><hr>
+        </div>
+        <div style="display: none" id="personal-video-panel" class="personal-music-panel">
+          <button onclick="closeVideoPanel()" style="display: none; margin: auto" class="pin-control-btn" id="close-video-panel">CLOSE PANEL</button>< style="margin-top: 5px;"<hr>
+          <h3>VIDEO-1</h3>
+          <video controls>
+            <source src="Videos/Dreamcore-1.mp4" type="video/mp4">
+            <source src="Videos/Dreamcore-1.mp4" type="video/ogg">
+          </video><hr>
+          <h3>VIDEO-2</h3>
+          <video controls>
+            <source src="Videos/Dreamcore-2.mp4" type="video/mp4">
+            <source src="Videos/Dreamcore-2.mp4" type="video/ogg">            
+          </video><hr>
+          <h3>VIDEO-3</h3>
+          <video controls>
+            <source src="Videos/Dreamcore-3.mp4" type="video/mp4">
+            <source src="Videos/Dreamcore-3.mp4" type="video/ogg">
+          </video><hr>
+          <h3>VIDEO-4</h3>
+            <video controls>
+              <source src="Videos/Home in florence.mp4" type="video/mp4">
+              <source src="Videos/Home in florence.mp4" type="video/ogg">
+            </video><hr>
+            <h3>VIDEO-5</h3>
+            <video controls>
+              <source src="Videos/Nostalgia.mp4" type="video/mp4">
+              <source src="Videos/Nostalgia.mp4" type="video/ogg">
+            </video>
+        </div>
+        <div style="display: none" class="themes-panel" id="themes-panel">
+        <div onclick="brightTheme()" style="background-color: orange; color: black;" class="option-block-2">BRIGHT</div>
+        <div onclick="ambientDarkTheme()" style="background-color: darkblue; color: aliceblue" class="option-block-2">AMBIENT DARK</div>
+        <div onclick="rgbTheme()" style="background-image: linear-gradient(red, green, blue)" class="option-block-2">RGB</div>
+        <div onclick="plainStructureTheme()" style="background-color: whitesmoke;">PLAIN STRUCTURE</div>
+        <div onclick="defaultTheme()" class="option-block-2">DEFAULT</div>
+        <div onclick="closeThemes()" class="option-block-2" id="close-themes" style="width: 300px; margin: auto; background-color: teal;">CLOSE THEMES (x)</div>
+      </div>
+        <div class="portal-info-panel" id="portal-info-panel" style="display: none">
+          <h1>| VISITOR INFO |</h1>
+            <p>This is the personal portal of Multiverse, containing the collection of my personal projects. I allow it to be used for general purposes as many tools can be accessed!</p> <br>
+            <p>The "CalcJot" program will allow you to access a variety of projects & tools like a counter, random number generator and much more!</p> <br>
+            <p>You can execute numerous commands in the JOT section by accessing |CalcJot|</p> <br> 
+            <hr style="margin: 5px 0 5px 0">
+            <h1>| ADVANCED COMMANDS |</h1>
+            <p style="color: yellow">Execute <strong style="color: cyan">"/showAllCommands"</strong> in the JOT option to view all available commands. Note that a developers password will be required to execute this command.</p> <br>
+            <p style="color: yellow">Execute <strong style="color: cyan">"/themes"</strong> to open a panel that will allow you to choose various background themes for the Calc&Jot program.</p> <br>
+            <p style="color: yellow">Execute <strong style="color: cyan">"/fullScreen"</strong> to unblock an enlarging feature for the note / commands output panel! (this also adds a button as a shortcut</p> <br>
+            <h1>| DEVELOPER INFO |</h1>
+            <blockquote>
+              <p>Creator: Multiverse2002 (Martin)</p>
+              <p>Languages: HTML, CSS & JavaScript</p>
+              <p>ALL CMDS PASSWORD: HTML</p>
+            </blockquote>
+        </div>
+      </div>
+      <div id="pin-control-panel" class="pin-control-panel">
+      <button onclick="enterBtn()" class="pin-control-btn" id="pin-ent-btn" style="background-image: linear-gradient(#50C878, green)">ENTER</button>
+      <button onclick="clearInp()" class="pin-control-btn" id="pin-clr-btn">CLEAR</button>
+    </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

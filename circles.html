@@ -1,0 +1,174 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        border: 7px double black;
+      }
+      body {
+        background-image: radial-gradient(lightblue, skyblue, darkblue);
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      .circle-wrapper {
+        background-color: snow;
+        border-radius: 125px;
+        width: 250px;
+        height: 250px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.4s, width 0.4s, height 0.4s;
+      }
+      .circle-wrapper:hover {
+        background-color: #FF033E;
+        border: none;
+        width: 300px;
+        height: 300px;
+      }
+      .circle-wrapper-2 {
+        background-color: snow;
+        border-radius: 100px;
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.6s, width 0.6s, height 0.6s;
+      }
+      .circle-wrapper-2:hover {
+        background-color: #32de84;
+        border: none;
+        width: 250px;
+        height: 250px;
+      }
+      .circle-wrapper-3 {
+        background-color: snow;
+        border-radius: 75px;
+        width: 150px;
+        height: 150px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.8s, width 0.8s, height 0.8s;
+      }
+      .circle-wrapper-3:hover {
+        background-color: #007FFF;
+        border: none;
+        width: 200px;
+        height: 200px;
+      }
+      .circle-wrapper-4 {
+        background-color: snow;
+        border-radius: 50px;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 1s, width 1s, height 1s;
+      }
+      .circle-wrapper-4:hover {
+        background-color: #FFFF00;
+        border: none;
+        width: 150px;
+        height: 150px;
+      }
+      .circle-wrapper-5 {
+        background-color: snow;
+        border-radius: 25px;
+        width: 50px;
+        height: 50px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 1.2s, width 1.2s, height 1.2s;
+      }
+      .circle-wrapper-5:hover {
+        background-color: #662d91;
+        border: none;
+        width: 100px;
+        height: 100px;
+      }
+      .circle-wrapper-6 {
+        background-color: snow;
+        border-radius: 12.5px;
+        width: 25px;
+        height: 25px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 1.4s, width 1.4s, height 1.4s;
+      }
+      .circle-wrapper-6:hover {
+        background-color: #FEBE10;
+        border: none;
+        width: 50px;
+        height: 50px;
+      }
+      .circle-wrapper-7 {
+        background-color: snow;
+        border-radius: 6.25px;
+        width: 12.5px;
+        height: 12.5px;
+        padding: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        font-family: Impact, 'Arial Narrow Bold', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 1.6s, width 1.6s, height 1.6s;
+      }
+      .circle-wrapper-7:hover {
+        background-color: brown;
+        border: none;
+        color: snow;
+        width: 25px;
+        height: 25px;
+      }
+      .wrapper-value {
+        font-size: 25px;
+        font-weight: bold;
+        font-family: monospace, Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circle-wrapper">
+      <div class="circle-wrapper-2">
+        <div class="circle-wrapper-3">
+          <div class="circle-wrapper-4">
+            <div class="circle-wrapper-5">
+              <div class="circle-wrapper-6">
+                <div class="circle-wrapper-7" id="circle-wrapper-7">
+                  X
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("circle-wrapper-7").onclick = function() {
+        alert("Bullseye!");
+      }
+    </script>
+  </body>
+</html>

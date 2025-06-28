@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    text-shadow: 1.3px 1.3px 1.3px black;
+  }
+  body {
+    background-color: #0a2351;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .calculator-wrapper {
+    background-color: rgb(9, 254, 160);
+    outline: 3px solid #E0FFFF;
+    padding: 15px;
+    width: 330px;
+    height: fit-content;
+    box-shadow: 5px 5px 5px #E0FFFF;
+    border-radius: 20px;
+  }
+  .output-bar {
+    background-color: darkcyan;
+    width: 100%;
+    height: 10%;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: lightcyan;
+    font-size: 25px;
+    font-family: Arial, Verdana, Times, serif;
+    text-align: center;
+    box-shadow: 4px 4px 4px black;
+    border-radius: 10px;
+  }
+  .number-keypad {
+    background-color: darkcyan;
+    box-shadow: 4px 4px 4px black;
+    border-radius: 10px;
+    width: 70%;
+    float: left;
+    color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 5px 12px 5px;
+  }
+  .number-key {
+    width: 53px;
+    height: 53px;
+    background-color: skyblue;
+    margin: 5px;
+    text-align: center;
+    transition: font-size 0.4s, background-color 0.4s, width 0.4s, height 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    box-shadow: 3px 3px 3px black;
+    border-radius: 10px 25px;
+    padding: 10px;
+  }
+  .number-key:hover {
+    background-color: #0a2351;
+    font-size: 20px;
+    color: yellow;
+    cursor: pointer;
+    border: 2.5px solid #E0FFFF;
+    width: 51px;
+    height: 51px;
+  }
+  .ans-key {
+    width: 55px;
+    height: 55px;
+    background-color: #0a2351;
+    color: #E0FFFF;
+    box-shadow: 3px 3px 3px black;
+    border-radius: 10px 25px;
+    text-align: center;
+    margin: 3.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    transition: font-size 0.4s, background-color 0.4s;
+  }
+  .ans-key:hover {
+    font-size: 18px;
+    background-color: #7B68EE;
+    color: #E0FFFF;
+    cursor: pointer;
+  }
+  .arithmetic-operators-keypad {
+    background-color: darkcyan;
+    box-shadow: 4px 4px 4px black;
+    border-radius: 10px;
+    width: 27%;
+    height: 336px;
+    float: right;
+    padding: 10px 5px 12px 5px;
+    color: azure;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .arithmetic-operator-key {
+    width: 60px;
+    height: 60px;
+    background-color: burlywood;
+    box-shadow: 3px 3px 3px black;
+    margin: 5px;
+    font-size: 19px;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.4s, font-size 0.4s;
+    border-radius: 25px 10px;
+  }
+.arithmetic-operator-key:hover {
+    background-color: yellow;
+    border: 3px solid #0a2351;
+    color: darkblue;
+    font-size: 17.5px;
+    cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+    <div class="calculator-wrapper" id="calculator-wrapper">
+      <input type="text" class="output-bar" value="Welcome Stranger!" id="output" name="output">
+      <div class="number-keypad" id="number-keypad">
+        <input type="button" class="number-key" id="key-1" value="0" onclick="output.value += '0' ">
+        <input type="button" class="number-key" id="key-2" value="1" onclick="output.value += '1' ">
+        <input type="button" class="number-key" id="key-3" value="2" onclick="output.value += '2' ">
+        <input type="button" class="number-key" id="key-4" value="3" onclick="output.value += '3' ">
+        <input type="button" class="number-key" id="key-5" value="4" onclick="output.value += '4' ">
+        <input type="button" class="number-key" id="key-6" value="5" onclick="output.value += '5' ">
+        <input type="button" class="number-key" id="key-7" value="6" onclick="output.value += '6' ">
+        <input type="button" class="number-key" id="key-8" value="7" onclick="output.value += '7' ">
+        <input type="button" class="number-key" id="key-9" value="8" onclick="output.value += '8' ">
+        <input type="button" class="number-key" id="key-10" value="9" onclick="output.value += '9' ">
+        <input type="button" class="number-key" value="." onclick="output.value += '.' ">
+        <input type="button" class="ans-key" id="ans-key" value="=" onclick="output.value = eval(output.value)">
+        <input type="button" class="ans-key" title="clear all" value="AC" onclick="output.value = '' ">
+        <input type="button" class="ans-key" id="enter-key" title="enterkey" value="Ent">
+        <input type="button" class="ans-key" id="empty-key" value="..." onclick="output.value = 'No function here, bro :)' ">
+      </div>
+      <div class="arithmetic-operators-keypad" id="arithmetic-operators-keypad">
+        <input type="button" value="+" title="Add" class="arithmetic-operator-key" id="addition-key" onclick="output.value += '+' ">
+        <input type="button" value="-" title="Subtract" class="arithmetic-operator-key" id="minus-key" onclick="output.value += '-' ">
+        <input type="button" value="x" title="Multiply" class="arithmetic-operator-key" id="multiply-key" onclick="output.value += '*' ">
+        <input type="button" value="/" title="Divide" class="arithmetic-operator-key" id="divide-key" onclick="output.value += '/' ">
+      </div>
+    </div>
+    <script>
+      let outputBar = document.getElementById("output");
+let numberKeys = document.getElementsByClassName("number-key");
+let arithmeticOperatorKeys = document.getElementsByClassName("arithmetic-operator-key");
+let ansKeys = document.getElementsByClassName("ans-key");
+
+document.getElementById("enter-key").onclick = function() {
+    if (outputBar.value == "dark") {
+        document.getElementById("main-screen").style.backgroundColor = "black";
+        document.getElementById("calculator-wrapper").style.backgroundColor = "#0C2340";
+        document.getElementById("output").style.backgroundColor = "#0a2351";
+        document.getElementById("output").style.color = "#E0FFFF";
+        document.getElementById("output").style.boxShadow = "4px 4px 4px #E0FFFF";
+        document.getElementById("number-keypad").style.backgroundColor = "#0a2351";
+        document.getElementById("number-keypad").style.boxShadow = "4px 4px 4px #E0FFFF";
+        document.getElementById("arithmetic-operators-keypad").style.backgroundColor = "#0a2351";
+        document.getElementById("arithmetic-operators-keypad").style.boxShadow = "4px 4px 4px #E0FFFF";
+
+        let nk;
+        let aok;
+        let ank;
+
+        for (nk = 0; nk < numberKeys.length; nk++) {
+            numberKeys[nk].style.backgroundColor = "#545AA7";
+            numberKeys[nk].style.boxShadow = "3px 3px 3px #E0FFFF";
+            numberKeys[nk].style.color = "#E0FFFF";
+        }
+        for (aok = 0; aok< arithmeticOperatorKeys.length; aok++) {
+            arithmeticOperatorKeys[aok].style.backgroundColor = "#4D4DFF";
+            arithmeticOperatorKeys[aok].style.color = "#E0FFFF";
+            arithmeticOperatorKeys[aok].style.boxShadow = "3px 3px 3px #E0FFFF";
+        }
+        for (ank = 0; ank < ansKeys.length; ank++) {
+            ansKeys[ank].style.color = "#E0FFFF";
+            ansKeys[ank].style.backgroundColor = "#4D4DFF";
+        }
+    } else {
+        outputBar.value = "Choose 'light' or 'dark' ";
+    }
+}
+
+
+    </script>
+  </body>
+</html>

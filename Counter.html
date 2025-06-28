@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <title>Counter</title>
+    <style>
+      * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.container {
+  background: darkblue;
+  border-radius: 10px;
+  border: 10px double yellow;
+  color: skyblue;
+  width: 300px;
+  height: 200px;
+  padding: 15px 15px 25px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.counter-value {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 0;
+}
+.btns-panel {
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+}
+.func-btn {
+  background: darkblue;
+  border-radius: 5px;
+  margin: 2px;
+  color: yellow;
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+  font-size: 22px;
+  transition: width 0.6s, height 0.6s, font-size 0.6s, padding 0.6s;
+}
+.func-btn:hover {
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  padding: 4px;
+  cursor: pointer;
+}
+.reset-btn-panel {
+  display: flex;
+  justify-content: center;
+}
+.reset-counter {
+  background: skyblue;
+  border-radius: 5px;
+  color: darkblue;
+  padding: 6px;
+  margin-top: 6px;
+  width: 80%;
+  height: fit-content;
+  text-align: center;
+  font-size: 16px;
+  font-family: monospace, Arial;
+  font-weight: bold;
+  transition: width 0.6s, height 0.6s, padding 0.6s, font-size 0.6s;
+}
+.reset-counter:hover {
+  padding: 8px;
+  width: 95%;
+  font-size: 18px;
+}
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="counter-value" id="counter-value"></div>
+      <div class="btns-panel">
+        <button class="func-btn" id="add-digit">+</button>
+        <button class="func-btn" id="subtract-digit">-</button>
+        <div class="reset-btn-panel">
+          <div class="reset-counter" id="reset-counter">Reset</div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let counterValue = 0;
+let addDigit = document.getElementById("add-digit");
+let subtractDigit = document.getElementById("subtract-digit");
+let resetCounter = document.getElementById("reset-counter");
+
+
+
+addDigit.onclick = function() {
+  counterValue++;
+  document.getElementById("counter-value").innerHTML = counterValue;
+}
+
+subtractDigit.onclick = function() {
+  counterValue--;
+  document.getElementById("counter-value").innerHTML = counterValue;
+  
+  if (counterValue < 0) {
+    counterValue = 0;
+    alert("Can't go below zero sir!");
+  }
+}
+
+resetCounter.onclick = function() {
+  document.getElementById("counter-value").innerHTML = "0";
+  counterValue *= 0;
+}
+    </script>
+  </body>
+</html>
